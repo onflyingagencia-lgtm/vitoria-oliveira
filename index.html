@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vitória Oliveira arq &amp; design</title>
+<!-- Demo Vitória Oliveira arq &amp; design · molde site-arquitetura com dobra 1 própria (Orzari, nov/2026) -->
+<meta name="description" content="Projetos de interiores que se moldam à sua rotina. Arquitetura e design em Belo Horizonte, desde 2017.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#711232">
+<meta property="og:title" content="Vitória Oliveira arq &amp; design">
+<meta property="og:description" content="Transformar espaços, facilitar jornadas. Interiores em Belo Horizonte.">
+<meta property="og:image" content="img/p1-908-quarto.webp">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/retrato.webp">
+<style>
+:root{
+  --cafe:#711232; --oliva:#DC6D51; --areia:#DED2C2; --trav:#C9B7A3; --nevoa:#ECECEC; --fundo:#711232; --claro:#FCE2CB; --acento:#DC6D51;
+  --papel:#F4EDE8; --tinta:#2B1A1F; --tinta-2:#6F5A5F;
+  --ceu-1:#4A80BA; --ceu-2:#588DC4;
+  --ease:cubic-bezier(.76,0,.24,1);
+  --ih:max(56.25vw, 62svh);         
+  --mark-bottom:.62;                 /* onde o VERTINO pousa, em fração da foto */
+  --b:min(0px, calc(60svh - var(--ih) * .766));   /* em tela larga e baixa, desce a foto para o telhado ficar abaixo do título */
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--papel);color:var(--tinta);font-family:Manrope,system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- menu ---------- */
+.nav{position:fixed;top:clamp(12px,2.2vh,22px);left:0;right:0;margin:0 auto;width:max-content;z-index:50;
+  display:flex;align-items:center;gap:4px;padding:5px;border-radius:14px;
+  background:rgba(250,248,244,.74);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 10px 30px -12px rgba(30,20,10,.35);opacity:0}
+.nav__mark{width:38px;height:34px;border-radius:10px;background:var(--cafe);display:grid;place-items:center}
+.nav__mark img{width:17px;height:auto}
+.nav__links{display:flex;gap:2px;padding:0 6px}
+.nav__links a{font-size:13px;color:var(--tinta);padding:8px 12px;border-radius:9px;transition:background .3s}
+.nav__links a:hover{background:rgba(82,63,48,.08)}
+.nav__cta{white-space:nowrap;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;background:#fff;padding:9px 14px;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.nav__cta i{width:6px;height:6px;border-radius:50%;background:var(--oliva);display:block}
+
+/* ---------- dobra 1 ---------- */
+.hero{position:relative;height:230svh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--papel)}
+.frame{position:absolute;inset:0;overflow:hidden;background:linear-gradient(180deg,var(--ceu-1) 0%,var(--ceu-2) calc(100% - var(--ih)),var(--ceu-2) 100%);
+  clip-path:inset(14% 16% 14% 16% round 28px);will-change:clip-path}
+.plate{position:absolute;left:50%;bottom:var(--b);height:var(--ih);width:auto;max-width:none;transform:translateX(-50%);
+  aspect-ratio:1672/941;object-fit:cover;user-select:none;pointer-events:none}
+.plate--back{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%);mask-image:linear-gradient(180deg,transparent 0,#000 7%)}
+.plate--front{z-index:3;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 7%);mask-image:linear-gradient(180deg,transparent 0,#000 7%)}
+.zoom{position:absolute;inset:0;transform-origin:50% 100%;will-change:transform}
+.mark{position:absolute;z-index:2;left:4.5vw;right:4.5vw;bottom:calc(var(--ih) * var(--mark-bottom) + var(--b));aspect-ratio:5200/1036;clip-path:inset(-60% -30% 0 -30%)}
+.mark img{position:absolute;top:0;height:100%;width:auto;max-width:none;will-change:transform}
+.copy{position:absolute;z-index:4;left:0;right:0;top:clamp(84px,13svh,140px);text-align:center;color:#fff;padding:0 20px}
+.copy h1{font-weight:300;font-size:clamp(46px,min(7.4vw,11.5svh),112px);line-height:.98;letter-spacing:-.035em}
+.copy h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.copy h1 .w>span{display:inline-block;transform:translateY(105%)}
+.copy h1 .tom{color:#F3E7D6}
+.copy p{margin:18px auto 0;max-width:30em;font-size:clamp(14px,1.15vw,16px);line-height:1.55;color:rgba(255,255,255,.88);opacity:0}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--tinta);color:#fff;font-size:14px;font-weight:500;
+  padding:6px 6px 6px 18px;border-radius:12px;margin-top:24px;opacity:0;transition:background .3s}
+.btn b{width:30px;height:30px;border-radius:8px;background:#fff;display:grid;place-items:center;transition:transform .45s var(--ease)}
+.btn b svg{width:14px;height:14px;stroke:var(--tinta)}
+.btn:hover{background:var(--cafe)}
+.btn:hover b{transform:translateX(3px)}
+.caption{position:absolute;z-index:4;left:0;right:0;bottom:clamp(18px,4svh,40px);text-align:center;color:#fff;
+  font-size:clamp(13px,1.05vw,15px);line-height:1.5;opacity:0;width:max-content;margin:0 auto;padding:10px 18px;border-radius:12px;background:rgba(42,33,25,.42);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hint{position:absolute;z-index:4;left:50%;bottom:22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:0;text-shadow:0 1px 10px rgba(30,20,10,.5)}
+.hint i{width:1px;height:34px;background:linear-gradient(#fff,transparent);display:block;animation:fio 2.2s var(--ease) infinite}
+@keyframes fio{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- dobra 2 ---------- */
+.about{position:relative;padding:clamp(80px,13vh,150px) clamp(16px,3vw,44px) clamp(56px,8vh,90px);background:var(--papel)}
+.about__top{display:grid;grid-template-columns:minmax(160px,1fr) 2.1fr;gap:clamp(20px,4vw,64px);align-items:start}
+.tag{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tinta);padding-top:.7em}
+.tag i{width:5px;height:5px;border-radius:50%;background:var(--tinta);display:block}
+.lead{font-weight:400;font-size:clamp(25px,3.05vw,46px);line-height:1.22;letter-spacing:-.022em;color:var(--tinta);max-width:22em}
+.lead .wd{opacity:.14;transition:opacity .25s linear}
+.lead .wd.c{color:var(--cafe)}
+.rule{height:1px;background:rgba(42,33,25,.16);margin:clamp(40px,7vh,72px) 0 clamp(30px,5vh,48px);transform:scaleX(0);transform-origin:left}
+.feats{display:grid;grid-template-columns:1fr 1fr auto;gap:clamp(20px,4vw,64px);align-items:end}
+.feat svg{width:38px;height:38px;stroke:var(--cafe);fill:none;stroke-width:1.2;margin-bottom:22px}
+.feat h3{font-weight:500;font-size:15px;margin-bottom:6px}
+.feat p{font-size:13.5px;line-height:1.55;color:var(--tinta-2);max-width:24em}
+.feats .btn{margin:0;opacity:1;min-width:260px;justify-content:space-between}
+.media{display:grid;grid-template-columns:1fr 1.75fr;gap:clamp(8px,1vw,14px);margin-top:clamp(36px,6vh,60px);height:clamp(420px,72vh,700px)}
+.card{position:relative;border-radius:18px;overflow:hidden;clip-path:inset(100% 0 0 0 round 18px)}
+.brand{background:var(--cafe);display:grid;place-items:center}
+.brand__n{width:34%;opacity:.95}
+.brand__tex{position:absolute;inset:0;opacity:.07;background:repeating-linear-gradient(176deg,#fff 0 1px,transparent 1px 9px)}
+.quote{position:absolute;left:clamp(12px,1.6vw,22px);right:clamp(12px,1.6vw,22px);bottom:clamp(12px,1.6vw,22px);background:#FBF9F6;border-radius:12px;padding:20px 22px 18px}
+.quote q{display:block;font-size:clamp(15px,1.25vw,18px);line-height:1.35;letter-spacing:-.01em;quotes:none;padding-right:34px}
+.quote small{display:block;margin-top:10px;font-size:12px;color:var(--tinta-2)}
+.quote svg{position:absolute;right:20px;top:20px;width:22px;height:22px;fill:var(--tinta)}
+.carousel{background:#cfc6bb;touch-action:pan-y;cursor:grab}
+.carousel:active{cursor:grabbing}
+.track{position:absolute;inset:0;display:flex;will-change:transform}
+.slide{position:relative;flex:0 0 100%;height:100%;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);will-change:transform;user-select:none;-webkit-user-drag:none}
+.chip{position:absolute;left:clamp(12px,1.6vw,22px);top:clamp(12px,1.6vw,22px);z-index:3;background:rgba(251,249,246,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:10px;padding:9px 13px;font-size:13px;display:flex;gap:10px;align-items:center}
+.chip em{font-style:normal;color:var(--tinta-2)}
+.bar{position:absolute;left:clamp(12px,1.6vw,22px);right:clamp(12px,1.6vw,22px);bottom:clamp(12px,1.6vw,22px);z-index:3;height:34px;border-radius:12px;
+  background:rgba(251,249,246,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;padding:0 16px;gap:6px}
+.bar button{flex:1;height:18px;border:0;background:none;cursor:pointer;position:relative}
+.bar button::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;border-radius:2px;background:rgba(42,33,25,.15)}
+.bar button span{position:absolute;left:0;top:8px;height:2px;border-radius:2px;background:var(--tinta);width:0}
+.foot{padding:28px clamp(16px,3vw,44px) 34px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--tinta-2);border-top:1px solid rgba(42,33,25,.1)}
+.foot a{text-decoration:underline;text-underline-offset:3px}
+
+
+/* ---------- dobra 1 do lead ---------- */
+.disp{font-family:Archivo,Manrope,sans-serif;font-stretch:72%;font-weight:800;letter-spacing:-.012em;line-height:.92}
+.nav__mark img{width:auto;height:20px}
+.brand__n{width:30%}
+.hv{height:300svh}
+.hv__stage{display:grid;grid-template-columns:1.18fr 1fr;gap:12px;padding:clamp(70px,9svh,86px) 12px 12px;background:var(--papel)}
+.hv__card{position:relative;background:var(--fundo);color:var(--claro);border-radius:24px;padding:clamp(22px,2.6vw,44px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;clip-path:inset(0 0 100% 0 round 24px)}
+.hv__word{width:100%;height:auto;opacity:0}
+.hv__kick{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.02em;color:rgba(252,226,203,.78);margin-bottom:clamp(14px,2svh,24px)}
+.hv__kick img{height:18px;width:auto}
+.hv h1{font-size:clamp(44px,min(6.1vw,11svh),112px);color:var(--claro)}
+.hv h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
+.hv h1 .w>span{display:inline-block;transform:translateY(105%)}
+.hv h1 .tom{color:var(--acento)}
+.hv__foot{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:clamp(16px,2.4svh,28px);border-top:1px solid rgba(252,226,203,.22)}
+.hv__foot p{max-width:24em;font-size:clamp(13px,1vw,15px);line-height:1.55;color:rgba(252,226,203,.8);opacity:0}
+.hv__btn{margin:0;background:var(--claro);color:var(--fundo);flex:none}
+.hv__btn b{background:var(--fundo)}.hv__btn b svg{stroke:var(--claro)}
+.hv__btn:hover{background:#fff}
+.hv__stack{position:relative;border-radius:24px;overflow:hidden;background:#d9c8bd}
+.hv__ph{position:absolute;inset:0;border-radius:24px;overflow:hidden;will-change:transform}
+.hv__ph img{width:100%;height:100%;object-fit:cover}
+.hv__ph:first-child img{object-position:62% 50%}
+.hv__ph+.hv__ph{transform:translateY(102%)}
+.hv__ph figcaption{position:absolute;left:14px;bottom:14px;display:flex;gap:8px;align-items:baseline;background:rgba(252,246,240,.92);color:var(--tinta);border-radius:12px;padding:10px 14px;font-size:13px}
+.hv__ph figcaption b{font-weight:600}
+.hv__n{position:absolute;right:14px;top:14px;z-index:5;background:rgba(252,246,240,.92);border-radius:10px;padding:7px 11px;font-size:12px;color:var(--tinta-2);font-variant-numeric:tabular-nums}
+.hv__n i{font-style:normal;color:var(--tinta);font-weight:600}
+@media (max-width:900px){
+  .hv{height:280svh}
+  .hv__stage{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:64px 10px 10px;gap:10px}
+  .hv__card{padding:18px 18px 16px;border-radius:20px}
+  .hv__kick{font-size:11.5px;margin:14px 0 8px}
+  .hv h1{font-size:clamp(34px,10.4vw,48px)}
+  .hv__foot{flex-direction:column;align-items:stretch;gap:12px;padding-top:12px;margin-top:14px}
+  .hv__foot p{font-size:13px}
+  .hv__btn{justify-content:space-between}
+  .hv__stack,.hv__ph{border-radius:20px}
+}
+.parado .hv__card{clip-path:none}.parado .hv__word,.parado .hv__foot p,.parado .hv__btn{opacity:1}.parado .hv h1 .w>span{transform:none}
+
+@media (max-width:900px){
+  .nav__links{display:none}
+  .about__top{grid-template-columns:1fr}
+  .feats{grid-template-columns:1fr 1fr}
+  .feats .btn{grid-column:1/-1;min-width:0;width:100%}
+  .media{grid-template-columns:1fr;height:auto}
+  .brand{aspect-ratio:4/4.2}
+  .carousel{aspect-ratio:4/4.4}
+}
+@media (max-width:600px){
+  :root{--mark-bottom:.745}
+  .feats{grid-template-columns:1fr}
+  .copy{top:clamp(92px,15svh,150px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .frame{clip-path:none}
+  .nav,.copy p,.btn,.caption{opacity:1}
+  .copy h1 .w>span{transform:none}
+  .lead .wd{opacity:1}
+  .rule{transform:none}.card{clip-path:none}
+  .hint i{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <a class="nav__mark" href="#inicio" aria-label="Vitória Oliveira arq &amp; design, início"><img src="img/simbolo.webp" alt=""></a>
+  <div class="nav__links">
+    <a href="#projetos">Projetos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato" data-wa>Contato</a>
+  </div>
+  <a class="nav__cta" href="#contato" data-wa><i></i>Falar com a Vitória</a>
+</nav>
+
+<main>
+  <!-- DOBRA 1 -->
+  <section class="hero hv" id="inicio" aria-label="Vitória Oliveira arq &amp; design">
+    <div class="stage hv__stage">
+      <div class="hv__card">
+        <img class="hv__word" src="img/wordmark.webp" alt="vitória oliveira">
+        <div class="hv__mid">
+          <p class="hv__kick"><img src="img/simbolo.webp" alt="">arq &amp; design · Belo Horizonte · desde 2017</p>
+          <h1 class="disp"><span class="w"><span>Transformar</span></span> <span class="w"><span>espaços,</span></span> <span class="w"><span>facilitar</span></span> <span class="w"><span class="tom">jornadas.</span></span></h1>
+        </div>
+        <div class="hv__foot">
+          <p>Projetos de interiores que se moldam à sua rotina, aliando modo de viver, desejos e orçamento.</p>
+          <a class="btn hv__btn" href="#contato" data-wa>Pedir um orçamento <b><svg viewBox="0 0 16 16" fill="none" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></b></a>
+        </div>
+      </div>
+      <div class="hv__stack" aria-label="Projetos">
+        <figure class="hv__ph"><img src="img/retrato.webp" alt="Vitória Oliveira na escada em madeira de um espaço da CASACOR Minas"><figcaption><b>Vitória Oliveira</b> arquiteta</figcaption></figure>
+        <figure class="hv__ph"><img src="img/p1-908-quarto.webp" alt="Quarto do Apartamento 908 com forro de madeira iluminado"><figcaption><b>Apartamento 908</b> quarto</figcaption></figure>
+        <figure class="hv__ph"><img src="img/p2-908-nicho.webp" alt="Nicho em madeira sobre bancada curva no Apartamento 908"><figcaption><b>Apartamento 908</b> divisória e nicho</figcaption></figure>
+        <figure class="hv__ph"><img src="img/p3-quarto.webp" alt="Quarto com manta clara sob forro de madeira com luz indireta"><figcaption><b>Projeto de interiores</b> quarto</figcaption></figure>
+        <span class="hv__n" aria-hidden="true"><i>01</i> / 04</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- DOBRA 2 -->
+  <section class="about" id="sobre" aria-labelledby="sobre-t">
+    <div class="about__top">
+      <div class="tag" id="sobre-t"><i></i>Sobre a arquiteta</div>
+      <p class="lead" data-words>Uma arquitetura que <span class="c">acolhe, transforma</span> e carrega significado em cada detalhe. Projetos de interiores que se moldam à rotina de quem mora, aliando modo de viver, desejos e orçamento, para que <span class="c">cada escolha faça sentido.</span></p>
+    </div>
+    <div class="rule"></div>
+    <div class="feats">
+      <div class="feat">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path class="draw" d="M8 36V17a12 12 0 0 1 24 0v19"/><path class="draw" d="M4 36h32"/></svg>
+        <h3>Interiores</h3>
+        <p>Projetos que se moldam à rotina de quem mora, sem nenhuma decisão apenas estética.</p>
+      </div>
+      <div class="feat">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path class="draw" d="M6 24h28v8H6z"/><path class="draw" d="M9 24v-7a3 3 0 0 1 3-3h16a3 3 0 0 1 3 3v7M9 32v4M31 32v4"/></svg>
+        <h3>Reforma</h3>
+        <p>Visitas de obra que alinham cada ponto com os prestadores, fiel ao projeto aprovado.</p>
+      </div>
+      <a class="btn" href="#contato" data-wa>Pedir um orçamento <b><svg viewBox="0 0 16 16" fill="none" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></b></a>
+    </div>
+
+    <div class="media" id="projetos">
+      <figure class="card brand">
+        <div class="brand__tex"></div>
+        <img class="brand__n" src="img/simbolo.webp" alt="Símbolo da Vitória Oliveira: o V em forma de coração com ponto" loading="lazy">
+        <figcaption class="quote">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21v-7.5C3 8.4 5.6 5 10.5 3.5l.9 1.8C8.6 6.6 7.3 8.6 7.2 11H11v10H3zm10 0v-7.5c0-5.1 2.6-8.5 7.5-10l.9 1.8c-2.8 1.3-4.1 3.3-4.2 5.7H21v10h-8z"/></svg>
+          <q>Quando um projeto é bem pensado, cada escolha faz sentido.</q>
+          <small>Vitória Oliveira · arq &amp; design · Belo Horizonte</small>
+        </figcaption>
+      </figure>
+      <div class="card carousel" aria-roledescription="carrossel" aria-label="Projetos">
+        <div class="chip"><span data-name>Apartamento 908</span><em data-kind>Quarto</em></div>
+        <div class="track">
+          <div class="slide" data-n="Apartamento 908" data-k="Quarto"><img src="img/p1-908-quarto.webp" alt="Quarto com forro de madeira iluminado, cabeceira estofada e almofadas terracota" loading="lazy" draggable="false"></div>
+          <div class="slide" data-n="Apartamento 908" data-k="Divisória e nicho"><img src="img/p2-908-nicho.webp" alt="Nicho em madeira sobre bancada curva em pedra, com espelho redondo e parede vinho" loading="lazy" draggable="false"></div>
+          <div class="slide" data-n="Projeto de interiores" data-k="Quarto"><img src="img/p3-quarto.webp" alt="Cama com manta clara sob forro de madeira com luz indireta" loading="lazy" draggable="false"></div>
+        </div>
+        <div class="bar" role="tablist"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contato">
+  <span>Demonstração feita pela <strong>Orzari Studio</strong>.</span>
+  <span><a href="#" data-wa>WhatsApp</a> · <a href="mailto:esc.vitoriaoliveira@gmail.com">esc.vitoriaoliveira@gmail.com</a> · <a href="https://instagram.com/vitoriaoliveira.arq" target="_blank" rel="noopener">@vitoriaoliveira.arq</a></span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const WA = "https://wa.me/5531994488837?text=Ol%C3%A1%2C%20Vit%C3%B3ria%21%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20projeto.";
+  document.querySelectorAll("[data-wa]").forEach(a => { a.href = WA; a.target = "_blank"; a.rel = "noopener"; });
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const M = window.Motion;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const seg = (p, a, b) => clamp((p - a) / (b - a));            // progresso local de p entre a e b
+  const ease = t => 1 - Math.pow(1 - t, 3);
+
+  // palavras da dobra 2
+  const lead = $("[data-words]");
+  (function split(node) {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(t => {
+          if (!t) return;
+          if (/^\s+$/.test(t)) frag.append(t);
+          else { const s = document.createElement("span"); s.className = "wd" + (node.classList?.contains("c") ? " c" : ""); s.textContent = t; frag.append(s); }
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1) { split(n); if (n.classList.contains("c")) n.replaceWith(...n.childNodes); }
+    });
+  })(lead);
+  const words = $$(".wd", lead);
+
+  if (!M || reduce) {                       // sem Motion ou com movimento reduzido: tudo no estado final
+    document.documentElement.classList.add("static");
+    $(".nav").style.opacity = 1; document.documentElement.classList.add("parado");
+    words.forEach(w => w.style.opacity = 1);
+    setupCarousel(false); return;
+  }
+  const { animate, scroll, stagger } = M;
+  const inView = (t, cb, o) => M.inView(t, e => cb(e && e.target ? e.target : e), o);   // v11 entrega o entry
+
+  // rolagem suave (desktop)
+  if (window.Lenis && matchMedia("(pointer:fine)").matches) {
+    const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    const raf = t => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf);
+    $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => { const id = a.getAttribute("href"); if (id.length > 1 && !a.hasAttribute("data-wa")) { e.preventDefault(); lenis.scrollTo(id, { duration: 1.6 }); } }));
+  }
+
+  // ---------- DOBRA 1 (do lead) ----------
+  const E = [0.76, 0, 0.24, 1];
+  animate(".nav", { opacity: [0, 1], y: [-14, 0] }, { duration: 0.9, delay: 0.9 });
+  const card = $(".hv__card"), phs = $$(".hv__ph"), num = $(".hv__n i");
+  animate(card, { clipPath: ["inset(0% 0% 100% 0% round 24px)", "inset(0% 0% 0% 0% round 24px)"] }, { duration: 1.2, ease: E, delay: .15 });
+  animate(".hv__stack", { clipPath: ["inset(100% 0% 0% 0% round 24px)", "inset(0% 0% 0% 0% round 24px)"] }, { duration: 1.3, ease: E, delay: .35 });
+  animate(".hv__ph:first-child img", { scale: [1.25, 1] }, { duration: 2, ease: [0.22, 1, 0.36, 1], delay: .35 });
+  animate(".hv__word", { opacity: [0, 1], y: [24, 0] }, { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: .8 });
+  animate(".hv h1 .w > span", { y: ["105%", "0%"] }, { duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: stagger(0.08, { startDelay: 1 }) });
+  animate(".hv__foot p", { opacity: [0, 1], y: [12, 0] }, { duration: .9, delay: 1.4 });
+  animate(".hv__btn", { opacity: [0, 1], y: [12, 0] }, { duration: .9, delay: 1.55 });
+  // rolagem: os projetos sobem um a um sobre o retrato, e o que fica embaixo recua
+  const n = phs.length - 1;
+  scroll(p => {
+    let cur = 0;
+    phs.forEach((ph, i) => {
+      if (i === 0) return;
+      const t = ease(seg(p, (i - 1) / n * .9 + .04, i / n * .9));
+      if (t > .5) cur = i;
+      ph.style.transform = `translateY(${(1 - t) * 102}%)`;
+    });
+    phs.forEach((ph, i) => {
+      const nxt = i < n ? ease(seg(p, i / n * .9 + .04, (i + 1) / n * .9)) : 0;
+      ph.querySelector("img").style.transform = `scale(${1 + nxt * .08})`;
+      ph.querySelector("img").style.filter = `brightness(${1 - nxt * .35})`;
+    });
+    num.textContent = String(cur + 1).padStart(2, "0");
+  }, { target: $(".hv"), offset: ["start start", "end end"] });
+
+
+  // ---------- DOBRA 2 ----------
+  scroll(p => {
+    const n = words.length;
+    words.forEach((w, i) => { w.style.opacity = (0.14 + 0.86 * clamp(p * (n + 6) - i)).toFixed(3); });
+  }, { target: lead, offset: ["start 0.85", "end 0.45"] });
+
+  inView(".rule", el => { animate(el, { scaleX: [0, 1] }, { duration: 1.4, ease: E }); }, { amount: 1 });
+  inView(".feats", el => {
+    $$(".draw", el).forEach(path => {
+      const L = path.getTotalLength(); path.style.strokeDasharray = L; path.style.strokeDashoffset = L;
+      animate(path, { strokeDashoffset: [L, 0] }, { duration: 1.6, ease: E, delay: 0.15 });
+    });
+    animate($$(".feat", el), { opacity: [0, 1], y: [18, 0] }, { duration: .9, delay: stagger(.12) });
+  }, { amount: .4 });
+  inView(".media", el => {
+    animate($$(".card", el), { clipPath: ["inset(100% 0% 0% 0% round 18px)", "inset(0% 0% 0% 0% round 18px)"] }, { duration: 1.3, ease: E, delay: stagger(.14) });
+    animate($$(".slide img", el).slice(0, 1), { scale: [1.25, 1.08] }, { duration: 1.8, ease: [0.22, 1, 0.36, 1] });
+    animate(".quote", { opacity: [0, 1], y: [24, 0] }, { duration: .9, delay: .8 });
+  }, { amount: .25 });
+  scroll(p => { $(".brand__n").style.transform = `translateY(${(p - .5) * -40}px)`; }, { target: $(".media"), offset: ["start end", "end start"] });
+
+  setupCarousel(true);
+
+  // ---------- carrossel ----------
+  function setupCarousel(motion) {
+    const car = $(".carousel"), track = $(".track", car), slides = $$(".slide", car), bar = $(".bar", car);
+    const name = $("[data-name]", car), kind = $("[data-kind]", car);
+    const fills = slides.map((s, i) => { const b = document.createElement("button"); b.setAttribute("aria-label", `Projeto ${i + 1}`); const f = document.createElement("span"); b.append(f); bar.append(b); b.onclick = () => go(i, true); return f; });
+    let cur = 0, timer = null, fillAnim = null, started = false; const DUR = 4.8;
+    function setChip(i) { name.textContent = slides[i].dataset.n; kind.textContent = slides[i].dataset.k; }
+    function go(i, user) {
+      cur = (i + slides.length) % slides.length; setChip(cur);
+      fills.forEach((f, k) => { f.style.width = k < cur ? "100%" : "0%"; });
+      if (motion) {
+        animate(track, { x: `${-cur * 100}%` }, { duration: 1.1, ease: E });
+        animate($("img", slides[cur]), { scale: [1.2, 1.08] }, { duration: 1.6, ease: [0.22, 1, 0.36, 1] });
+        if (fillAnim) fillAnim.stop();
+        fillAnim = animate(fills[cur], { width: ["0%", "100%"] }, { duration: DUR, ease: "linear" });
+      } else { track.style.transform = `translateX(${-cur * 100}%)`; fills[cur].style.width = "100%"; }
+      clearTimeout(timer); timer = setTimeout(() => go(cur + 1), DUR * 1000);
+    }
+    // arrastar / deslizar
+    let x0 = null, dx = 0, w = 1;
+    car.addEventListener("pointerdown", e => { if (e.target.closest(".bar")) return; x0 = e.clientX; dx = 0; w = car.clientWidth; car.setPointerCapture(e.pointerId); clearTimeout(timer); if (fillAnim) fillAnim.pause(); });
+    car.addEventListener("pointermove", e => { if (x0 === null) return; dx = e.clientX - x0; track.style.transform = `translateX(calc(${-cur * 100}% + ${dx}px))`; });
+    const end = () => { if (x0 === null) return; x0 = null; if (Math.abs(dx) > w * .12) go(cur + (dx < 0 ? 1 : -1), true); else go(cur, true); };
+    car.addEventListener("pointerup", end); car.addEventListener("pointercancel", end);
+    setChip(0);
+    const start = () => { if (!started) { started = true; go(0); } };
+    if (motion) M.inView(car, start, { amount: .4 }); else start();
+  }
+})();
+</script>
+</body>
+</html>
